@@ -1,0 +1,21 @@
+{
+  "name": "gulp2.0",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Vitaliy Grigorev <vitaliy.grigorev@yahoo.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css":"latest",
+    "jquery":"latest"
+  }
+}

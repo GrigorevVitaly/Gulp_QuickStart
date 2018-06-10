@@ -59,36 +59,36 @@ gulp.task('js', function () {
 });
 
 gulp.task('watch', ['html','browser-sync', 'js'], function () {
-    gulp.watch('app/sass/**/*.scss', ['sass']); // Наблюдение за sass файлами в папке sass
-    gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
-    gulp.watch('app/js/**/*.js', ['js', browserSync.reload]);   // Наблюдение за JS файлами в папке js
+    gulp.watch('app/sass/**/*.scss', ['sass']); 
+    gulp.watch('app/*.html', browserSync.reload);
+    gulp.watch('app/js/**/*.js', ['js', browserSync.reload]);
     gulp.watch('app/pug/**/*.pug', ['html']);
 });
 
 gulp.task('clean', function () {
-    return del.sync('dist'); // Удаляем папку dist перед сборкой
+    return del.sync('dist');
 });
 
 gulp.task('img', function () {
-    return gulp.src('app/img/**/*') // Берем все изображения из app
+    return gulp.src('app/img/**/*') 
         .pipe(imagemin({ use: [pngquant()] }))
-        .pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
+        .pipe(gulp.dest('dist/img')); 
 });
 
 gulp.task('build', ['clean', 'img', 'sass', 'js', 'html'], function () {
 
-    var buildCss = gulp.src([ // Переносим библиотеки в продакшен
+    var buildCss = gulp.src([ 
         'app/css/main.min.css'
     ])
         .pipe(gulp.dest('dist/css'))
 
-    var buildFonts = gulp.src('app/fonts/**/*') // Переносим шрифты в продакшен
+    var buildFonts = gulp.src('app/fonts/**/*') 
         .pipe(gulp.dest('dist/fonts'))
 
-    var buildJs = gulp.src('app/js/main.min.js') // Переносим скрипты в продакшен
+    var buildJs = gulp.src('app/js/main.min.js') 
         .pipe(gulp.dest('dist/js'))
 
-    var buildHtml = gulp.src('app/*.html') // Переносим HTML в продакшен
+    var buildHtml = gulp.src('app/*.html') 
         .pipe(gulp.dest('dist'));
 
 });
